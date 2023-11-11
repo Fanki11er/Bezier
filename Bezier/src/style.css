@@ -1,0 +1,49 @@
+*,*::after, *::before{
+  box-sizing: border-box;
+}
+
+html{
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background-color: hsl(221, 95%, 8%);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.main_container{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 80% 1fr; 
+ 
+}
+
+.canvas{
+  display: flex;
+  background-color: white;
+  justify-self: center;
+  align-self: center;
+}
+
+.canvas_wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.controls{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  row-gap: 20px;
+  align-items: center;
+  border: 2px solid orange;
+  padding: 30px 0;
+}
