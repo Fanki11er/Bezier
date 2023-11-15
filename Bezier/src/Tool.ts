@@ -1,1 +1,1 @@
-export type Tool = "Cursor" | "Point";
+export type Tool = "Cursor" | "Creator";

@@ -47,3 +47,24 @@ body{
   border: 2px solid orange;
   padding: 30px 0;
 }
+
+.select_button{
+  width: 80px;
+  height: 30px;
+  background-color: transparent;
+  border: 2px solid orange;
+  outline: none;
+  border-radius: 10px;
+  transition: all 0.5s;
+  color: orange;
+  }
+
+  .select_button:hover{
+    background-color: orange;
+    color: hsl(221, 95%, 8%);
+  }
+
+  .button_active{
+    background-color: orange;
+    color: hsl(221, 95%, 8%);
+  }

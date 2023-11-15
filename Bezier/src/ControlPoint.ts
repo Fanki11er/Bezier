@@ -1,8 +1,11 @@
+import { IObservable } from "./IObservable";
+import { IObserver } from "./IObserver";
 import { Point } from "./Point";
 
-export class ControlPoint extends Point {
+export class ControlPoint extends Point implements IObservable {
   private radius = 5;
   private isHovered: boolean = false;
+  observer: IObserver | null = null;
   constructor(x: number, y: number) {
     super(x, y);
   }
@@ -34,6 +37,26 @@ export class ControlPoint extends Point {
   }
 
   move(toX: number, toY: number) {
-    console.log("Move");
+    this.x = toX;
+    this.y = toY;
+
+    if (this.observer) {
+      this.observer.updateFromObservable(this);
+    }
+  }
+
+  addObserver(observer: IObserver) {
+    this.observer = observer;
+    this.observer.setObservable(this);
+    observer.connect();
+    observer.updateFromObservable(this);
+  }
+
+  removeObserver() {
+    if (this.observer) {
+      this.observer.disconnect();
+      this.observer.setObservable(null);
+      this.observer = null;
+    }
   }
 }
