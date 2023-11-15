@@ -46,10 +46,11 @@ body{
   align-items: center;
   border: 2px solid orange;
   padding: 30px 0;
+  max-height: 100vh;
 }
 
 .select_button{
-  width: 80px;
+  width: 100px;
   height: 30px;
   background-color: transparent;
   border: 2px solid orange;
@@ -67,4 +68,74 @@ body{
   .button_active{
     background-color: orange;
     color: hsl(221, 95%, 8%);
+  }
+
+  .buttons_wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .inputs_wrapper{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 120px);
+    gap: 15px;
+    padding: 0 10px;
+    overflow-y: auto;
+    justify-content: space-around;
+  }
+
+  .point_input_label{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    color: #80B03A;
+    font-weight: bold;
+    align-items: center;
+  }
+
+  .point_input{
+    border: 2px solid #80B03A;
+    width: 120px;
+    background-color: hsl(221, 95%, 8%);
+    border-radius: 8px;
+    color: #80B03A;
+    padding: 5px 10px;
+    outline: none;
+    text-align: center;
+    transition: opacity 0.5s scaleY 0.5s 1s;
+  }
+
+  .point_input:hover,.tool_input:focus {
+    box-shadow: 0 0 5px 1px #80B03A;
+  }
+
+  .point_input::placeholder{
+    color: rgba(128, 176, 58, 0.7);
+  }
+
+  .add_point_button{
+    border: 2px solid #13B3F2;
+    color: #13B3F2;
+    background-color: transparent;
+    width: 80px;
+    height: 35px;
+    border-radius: 10px; 
+    transition: all 0.5s;
+    outline: none;
+  }
+
+  .add_point_button:hover{
+    color:hsl(221, 95%, 8%);
+    background-color: #13B3F2;
+  }
+
+  .error{
+    border: 2px solid red;
+    color: red;
+  }
+
+  .error:hover, .error:focus{
+    box-shadow: 0 0 5px 1px red;
   }

@@ -1,6 +1,6 @@
-import { IObserver } from "./IObserver";
+import { PointInput } from "./PointInput";
 
 export interface IObservable {
-  addObserver: (observer: IObserver) => void;
+  addObserver: (observer: PointInput) => void;
   removeObserver: () => void;
 }

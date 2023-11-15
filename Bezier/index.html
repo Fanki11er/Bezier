@@ -13,15 +13,28 @@
         <canvas id="canvas" class="canvas"></canvas>
       </div>
       <div class="controls">
-        <button
-        class="select_button button_active"
-        data-selection="Cursor"
-      >
-        Select
-      </button>
-        <button class="select_button" data-selection="Creator">
-          Create
+        <div class="buttons_wrapper">
+          <button
+          class="select_button button_active"
+          data-selection="Cursor"
+        >
+          Select
         </button>
+          <button class="select_button" data-selection="Creator">
+            Create
+          </button>
+        </div>
+        <div class="inputs_wrapper" id="inputsWrapper">
+         
+        </div>
+        <label class="point_input_label">
+          New point
+        <input class="point_input" id="addPointInput" placeholder="0,0" />
+      </label>
+      <button class="add_point_button" id="addPointButton">
+        Add point
+      </button>
+     
       </div>
     <script type="module" src="/src/main.ts"></script>
   </body>

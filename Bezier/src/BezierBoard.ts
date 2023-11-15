@@ -1,5 +1,6 @@
 import { BezierCurveDrawer } from "./BezierCurveDrawer";
 import { ControlPoint } from "./ControlPoint";
+import { InputsController } from "./InputsController";
 import { Point } from "./Point";
 import { SelectToolButtons } from "./SelectToolButtons";
 import { Tool } from "./Tool";
@@ -17,6 +18,8 @@ export class BezierBoard {
   private selectedPoint: ControlPoint | null = null;
 
   private controlPoints: ControlPoint[] = [];
+
+  private pointsInputsController;
 
   constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas;
@@ -39,6 +42,12 @@ export class BezierBoard {
     }
 
     new SelectToolButtons(this);
+    this.pointsInputsController = new InputsController(
+      this,
+      "inputsWrapper",
+      "addPointInput",
+      "addPointButton"
+    );
   }
 
   render() {
@@ -48,10 +57,14 @@ export class BezierBoard {
     requestAnimationFrame(() => this.render());
   }
 
-  private addControlPoint = () => {
-    this.controlPoints.push(
-      new ControlPoint(this.mousePosition.x, this.mousePosition.y)
+  addControlPoint = (x: number, y: number) => {
+    const point = new ControlPoint(x, y);
+    this.controlPoints.push(point);
+    const input = this.pointsInputsController.addPointInput(
+      this.mousePosition.x,
+      this.mousePosition.y
     );
+    point.addObserver(input);
   };
 
   private getMousePositionOnCanvas(x: number, y: number) {
@@ -98,7 +111,7 @@ export class BezierBoard {
 
   onMouseUp() {
     if (this.selectedTool === "Creator") {
-      this.addControlPoint();
+      this.addControlPoint(this.mousePosition.x, this.mousePosition.y);
     }
 
     if (this.grabbedPoint) {

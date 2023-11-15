@@ -1,9 +1,7 @@
-import { IObservable } from "./IObservable";
+import { ControlPoint } from "./ControlPoint";
 
 export interface IObserver {
-  updateFromObservable: (element: IObservable) => void;
+  updateFromObservable: (element: ControlPoint) => void;
   updateObservable: () => void;
-  setObservable: (element: IObservable | null) => void;
-  connect: () => void;
-  disconnect: () => void;
+  setObservable: (element: ControlPoint | null) => void;
 }
